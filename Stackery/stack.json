@@ -1,100 +1,44 @@
 {
   "nodes": [
     {
-      "id": "3790dd77",
+      "id": "51aac807",
       "type": "function",
-      "name": "Hello!",
-      "outputs": 1,
-      "memorySize": 128,
-      "timeout": 30,
-      "runtime": "nodejs8",
-      "location": "inline",
-      "noerr": true,
-      "x": 400,
-      "y": 185,
-      "wires": [
-        []
-      ]
-    },
-    {
-      "id": "7ee2fa0f",
-      "type": "function",
-      "name": "Echo",
-      "outputs": 1,
-      "memorySize": 128,
-      "timeout": 30,
-      "runtime": "nodejs8",
-      "location": "inline",
-      "noerr": true,
-      "x": 400,
-      "y": 285,
-      "wires": [
-        []
-      ]
-    },
-    {
-      "id": "85a34c60",
-      "type": "http",
-      "x": 197.5,
-      "y": 235,
-      "width": 185,
-      "height": 260
-    },
-    {
-      "id": "63994647",
-      "type": "restApiEndpoint",
-      "x": 185,
-      "y": 185,
-      "name": "",
-      "path": "/",
-      "method": "GET",
-      "wires": [
-        [
-          "3790dd77"
-        ]
-      ]
-    },
-    {
-      "id": "83c14ff9",
-      "type": "restApiEndpoint",
-      "x": 195,
-      "y": 285,
-      "name": "",
-      "path": "/{message}",
-      "method": "GET",
-      "wires": [
-        [
-          "7ee2fa0f"
-        ]
-      ]
-    },
-    {
-      "id": "dff63e0b",
-      "type": "errors",
-      "x": 200,
-      "y": 400,
-      "wires": [
-        [
-          "28b4581f"
-        ]
-      ]
-    },
-    {
-      "id": "28b4581f",
-      "type": "function",
-      "x": 410,
-      "y": 400,
-      "name": "LogErrors",
+      "x": 335,
+      "y": 405,
+      "width": 100,
+      "height": 30,
+      "name": "write-to-db",
       "outputs": 1,
       "memorySize": 3008,
       "timeout": 30,
       "runtime": "nodejs8",
       "location": "inline",
-      "envVars": {},
+      "envVars": {
+        "dbRoot": "movieReference"
+      },
       "entryPoint": "",
       "wires": [
-        []
+        [
+          "a9de5889"
+        ]
       ]
+    },
+    {
+      "id": "a9de5889",
+      "type": "database",
+      "x": 535,
+      "y": 395,
+      "width": 100,
+      "height": 30,
+      "name": "basic-RDS",
+      "engine": "mariadb",
+      "version": "10.1",
+      "storageSize": 5,
+      "backupRetentionPeriod": 0,
+      "instanceType": "db.t2.micro",
+      "rootPassword": "moviereference",
+      "failover": false,
+      "skipNameResolution": false
     }
   ]
 }

@@ -1,6 +1,6 @@
 
 {
-  "name": "echo",
+  "name": "write-to-db",
   "version": "1.0.0",
   "dependencies": {
     "aws-sdk": "~2"
